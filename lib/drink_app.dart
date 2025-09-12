@@ -16,7 +16,7 @@ class DrinkApp extends StatelessWidget {
 
       child: MaterialApp(
       
-        initialRoute: Routes.onboardingScreen,
+        initialRoute: Routes.homeScreen,
 
         debugShowCheckedModeBanner: false,
         onGenerateRoute: approuter.generateRoute,
