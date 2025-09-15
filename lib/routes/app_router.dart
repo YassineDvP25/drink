@@ -1,6 +1,7 @@
 
 import 'package:drinks/routes/routes.dart';
 import 'package:drinks/screens/home_screen.dart';
+// Make sure the file 'home_screen.dart' exists in 'lib/screens' and defines 'HomeScreen'
 import 'package:flutter/material.dart';
 
 class AppRouter {
