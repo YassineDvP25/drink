@@ -53,11 +53,11 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
                             height: 800,
                           ),
                           Positioned(
-                            left: 60,
-                            bottom: index == 0 ? 160 : 180,
+                            left: 45,
+                            bottom: index == 0 ? 160 : 190,
                             child: Container(
-                              height: 8.h,
-                              width: 100.w,
+                              height: 15.h,
+                              width: 130.w,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
                                 boxShadow: [
