@@ -28,58 +28,83 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          PageView.builder(
-            scrollDirection: Axis.horizontal,
-            controller: controller,
-            itemCount: drinks.length,
-            itemBuilder: (context, index) {
-              final scale = 1 - (currentPage - index).abs() * 1;
-              final transtaleY = 1 - (currentPage - index).abs() * 70;
-              final transtaleX = 1 - (currentPage - index).abs() * 70;
-              return Transform.translate(
-                offset: Offset(transtaleY, transtaleX),
-
-                child: Transform.scale(
-                  scale: scale.clamp(0.5, 1),
-                  child: Column(
+      backgroundColor: const Color.fromARGB(255, 149, 138, 138),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10).r,
+        child: Stack(
+          children: [
+            Positioned(
+              top: 80,
+              left: 10,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
                     children: [
-                      Stack(
-                        children: [
-                          Image.asset(
-                            drinks[index].image,
-                            fit: BoxFit.contain,
-                            height: 800,
-                          ),
-                          Positioned(
-                            left: 45,
-                            bottom: index == 0 ? 160 : 190,
-                            child: Container(
-                              height: 15.h,
-                              width: 130.w,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                boxShadow: [
-                                  BoxShadow(
-                                    spreadRadius: 1,
-                                    offset: Offset.zero,
-                                    blurRadius: 36.r,
-                                    color: Colors.black,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      Text('Drink Name'),
+                      Text('20 flavors of this drink'),
                     ],
                   ),
-                ),
-              );
-            },
-          ),
-        ],
+                  Text('Prix'),
+                ],
+              ),
+            ),
+            PageView.builder(
+              scrollDirection: Axis.horizontal,
+              controller: controller,
+              itemCount: drinks.length,
+              itemBuilder: (context, index) {
+                final scale = 1 - (currentPage - index).abs() * 1;
+                final transtaleY = 1 - (currentPage - index).abs() * 70;
+                final transtaleX = 1 - (currentPage - index).abs() * 70;
+                return Transform.translate(
+                  offset: Offset(transtaleY, transtaleX),
+        
+                  child: Transform.scale(
+                    scale: scale.clamp(0.5, 1),
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Image.asset(
+                              drinks[index].image,
+                              fit: BoxFit.contain,
+                              height: 800,
+                            ),
+                            Positioned(
+                              left: 30,
+                              bottom: index == 0 ? 160 : 190,
+                              child: Container(
+                                height: 20.h,
+                                width: 145.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      spreadRadius: 1,
+                                      offset: Offset.zero,
+                                      blurRadius: 40.r,
+                                      color: const Color.fromARGB(
+                                        255,
+                                        38,
+                                        37,
+                                        37,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

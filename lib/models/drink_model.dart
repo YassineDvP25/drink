@@ -36,11 +36,7 @@ class DrinkModel {
       name: "Strawberry milkshake",
       prix: 14,
     ),
-    DrinkModel(
-      image: "assets/drinks/chocolate_milkshake_smoothie_dessert_drink.png",
-      name: "Chocolate milkshake",
-      prix: 20,
-    ),
+  
     DrinkModel(
       image: "assets/drinks/Chocolate_frappuccino.png",
       name: "Chocolate frappuccino",
