@@ -5,11 +5,12 @@ class DrinkItem extends StatelessWidget {
   final String itemImage;
   final String itemName;
   final int itemPrice;
+  final void Function()? onTap;
   const DrinkItem({
     super.key,
     required this.itemImage,
     required this.itemName,
-    required this.itemPrice,
+    required this.itemPrice, this.onTap,
   });
 
   @override
@@ -59,7 +60,8 @@ class DrinkItem extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 75,left: 170,
+            top: 75,
+            left: 170,
             // right: 127,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,7 +76,7 @@ class DrinkItem extends StatelessWidget {
                 ),
                 Text(
                   '20 flavors of your drinks',
-                  style: TextStyle(fontSize: 15,fontFamily: 'PlayfairDisplay',),
+                  style: TextStyle(fontSize: 15, fontFamily: 'PlayfairDisplay'),
                 ),
               ],
             ),
@@ -92,10 +94,13 @@ class DrinkItem extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.black45),
               ),
-              child: Icon(
-                Icons.arrow_forward,
-                size: 16.sp,
-                color: Colors.black38,
+              child: GestureDetector(
+                onTap: onTap,
+                child: Icon(
+                  Icons.arrow_forward,
+                  size: 16.sp,
+                  color: Colors.black38,
+                ),
               ),
             ),
           ),
