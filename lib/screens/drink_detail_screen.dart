@@ -28,24 +28,47 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 149, 138, 138),
+      // backgroundColor: const Color.fromARGB(255, 149, 138, 138),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10).r,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
         child: Stack(
           children: [
             Positioned(
               top: 80,
               left: 10,
+              right: 10,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Drink Name'),
-                      Text('20 flavors of this drink'),
+                      Text(
+                        drinks[currentPage.round()].name,
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'PlayfairDisplay',
+                        ),
+                      ),
+                      Text(
+                        '20 flavors of this drink',
+                        style: TextStyle(
+                          fontSize: 10.sp,
+                          fontFamily: 'PlayfairDisplay',
+                        ),
+                      ),
                     ],
                   ),
-                  Text('Prix'),
+                  Text(
+                    '\$ ${drinks[currentPage.round()].prix}',
+                    style: TextStyle(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'PlayfairDisplay',
+                      color: Colors.green
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -59,7 +82,7 @@ class _DrinkDetailScreenState extends State<DrinkDetailScreen> {
                 final transtaleX = 1 - (currentPage - index).abs() * 70;
                 return Transform.translate(
                   offset: Offset(transtaleY, transtaleX),
-        
+
                   child: Transform.scale(
                     scale: scale.clamp(0.5, 1),
                     child: Column(
